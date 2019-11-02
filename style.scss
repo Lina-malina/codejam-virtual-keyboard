@@ -1,0 +1,63 @@
+.textarea {
+    width: 60%;
+    height: 100px;
+    border: 1px solid darkblue;
+    margin: 0 auto;
+    display: block;
+}
+
+.keyboard {
+    width: 90%;
+    border: 2px solid rgba(8, 8, 63, .25);
+    border-radius: 20px;
+    background-color: #02363f;
+    margin: 10% auto;
+    padding: 5px;
+
+   .keyboard--keys_row {
+       text-align: center;
+   }
+}
+
+.keyboard_keys--key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #1d3874;
+    background-color: #aee8ec;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.01rem;
+    color: rgb(0, 5, 17);
+    margin: 3px;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+   &.wide {
+        width: 120px;
+    }
+
+    &.extra-wide {
+        width: 250px;
+    }
+
+    &:hover {
+        background-color: darken(#aee8ec, 20);
+    }
+
+    &:active {
+        background-color: #ffffff;
+    }
+}
+
+.active_caps_lock {
+    background-color: #011618;
+    color: #ffffff;
+}
+
+.active {
+    background-color: #ffffff;
+}
