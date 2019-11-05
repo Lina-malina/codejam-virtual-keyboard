@@ -7,7 +7,7 @@
 }
 
 .keyboard {
-  width: 90%;
+  width: 80%;
   border: 2px solid rgba(8, 8, 63, 0.25);
   border-radius: 20px;
   background-color: #02363f;
@@ -67,5 +67,14 @@
 
 .active {
   background-color: #ffffff;
+  border-radius: 20%;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */
