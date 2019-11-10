@@ -70,6 +70,8 @@ if (language === 'ru') {
 
 // Press button on physical keyboard -> highlight the corresponding virtual button
 function getPressedButton(event) {
+  let pressedButtonRow;
+  let pressedButtonIndex;
   let pressedButton = event.key.toLocaleLowerCase();
   if (pressedButton === 'capslock') {
     pressedButton = 'caps lock';
@@ -77,14 +79,22 @@ function getPressedButton(event) {
   if (pressedButton === 'control') {
     pressedButton = 'ctrl';
   }
-  if (pressedButton === 'altgraph') {
-    pressedButton = 'alt';
+  if (event.code === 'ShiftRight') {
+    pressedButtonRow = 3;
+    pressedButtonIndex = 11;
+  } else if (event.code === 'ControlRight') {
+    pressedButtonRow = 4;
+    pressedButtonIndex = 4;
+  } else if (event.code === 'AltRight') {
+    pressedButtonRow = 4;
+    pressedButtonIndex = 3;
+  } else {
+    pressedButtonRow = currentChartsArray.findIndex((row) => row.indexOf(pressedButton) !== -1);
+    if (pressedButtonRow === -1) {
+      return undefined;
+    }
+    pressedButtonIndex = currentChartsArray[pressedButtonRow].indexOf(pressedButton);
   }
-  const pressedButtonRow = currentChartsArray.findIndex((row) => row.indexOf(pressedButton) !== -1);
-  if (pressedButtonRow === -1) {
-    return undefined;
-  }
-  const pressedButtonIndex = currentChartsArray[pressedButtonRow].indexOf(pressedButton);
   const htmlKeyboardRows = currentKeyboard.querySelectorAll('.keyboard--keys_row');
   const htmlPressedButtonRow = htmlKeyboardRows[pressedButtonRow];
   const htmlPressedButton = htmlPressedButtonRow.children[pressedButtonIndex];
