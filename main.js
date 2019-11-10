@@ -191,7 +191,6 @@ function changeKeyboardLayout() {
   }
 }
 languageSwitcher(changeKeyboardLayout, 'AltLeft', 'ShiftLeft');
-languageSwitcher(changeKeyboardLayout, 'AltRight', 'ShiftRight');
 
 // Fix 'caps lock' button highlighting
 document.querySelector('.russianKeyboard .active_caps_lock').classList.remove('active_caps_lock');
